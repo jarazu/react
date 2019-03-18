@@ -3,7 +3,7 @@ import { link } from 'fs';
 
 class  Counter extends Component {
     state = {
-        count: 2,
+        count: 0,
         tags:['tag1','tag2','tag3']
     };
     styles = {
@@ -15,19 +15,21 @@ class  Counter extends Component {
     //     super();
     //     this.handleIncrement=this.handleIncrement.bind(this);
     // }
-    handleIncrement =() =>{
-       // console.log('Increment Clicked');
-       this.state.count++;
-       this.setState();
+    handleIncrement =(product) =>{
+        console.log(product);
+       this.setState({count:this.state.count+1});
+    }
+    doHandleIncrement = () =>{
+        this.setState({id:1});
     }
     render() { 
         return (
         <div>
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
-            <ul>
+            <button onClick={ () => this.handleIncrement({id:1})} className="btn btn-secondary btn-sm">Increment</button>
+            {/* <ul>
                 {this.state.tags.map(tag=><li key={tag}>{tag}</li>)}
-            </ul>
+            </ul> */}
         </div>
         );
     }
