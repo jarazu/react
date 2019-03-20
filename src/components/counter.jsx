@@ -2,30 +2,12 @@ import React, { Component } from "react";
 import { link } from "fs";
 
 class Counter extends Component {
-  state = {
-    value: this.props.counter.value
-  };
-  styles = {
-    fontSize: 50,
-    fontWeight: "bold"
-  };
-
-  // constructor(){
-  //     super();
-  //     this.handleIncrement=this.handleIncrement.bind(this);
-  // }
-  handleIncrement = product => {
-    this.setState({ value: this.state.value + 1 });
-  };
-  doHandleIncrement = () => {
-    this.setState({ id: 1 });
-  };
   render() {
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={() => this.handleIncrement({ id: 1 })}
+          onClick={() => this.props.onIncremet}
           className="btn btn-secondary btn-sm"
         >
           Increment
